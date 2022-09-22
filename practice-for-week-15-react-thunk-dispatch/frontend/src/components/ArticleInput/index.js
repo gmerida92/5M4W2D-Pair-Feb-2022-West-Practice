@@ -11,7 +11,7 @@ const ArticleInput = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newArticle = {
       // id: Number(nanoid()),
@@ -20,14 +20,14 @@ const ArticleInput = () => {
       imageUrl
     };
 
-    dispatch(writeArticle(newArticle));
-    reset();
+    // dispatch(writeArticle(newArticle));
+    // reset();
 
-    // const res = await dispatch(writeArticle(newArticle));
+    const res = await dispatch(writeArticle(newArticle));
 
-    // if (res) {
-    //   reset();
-    // }
+    if (res) {
+      reset();
+    }
   };
 
   const reset = () => {
